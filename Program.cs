@@ -46,7 +46,7 @@ public class Program
                 .Build();
 
             // Get folder path from configuration
-            var folderPath = configuration["FolderSettings:FolderPath"];
+            var folderPath = configuration["Ordner"];
 
             if (string.IsNullOrEmpty(folderPath))
             {

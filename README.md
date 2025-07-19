@@ -1,4 +1,4 @@
-# OrdnerOeffner (Folder Opener)
+# Ordner Öffner
 
 Eine C# Konsolenanwendung, die im Hintergrund läuft und einen angegebenen Ordner im Windows Explorer öffnet, das Fenster in den Vordergrund bringt und fokussiert.
 
@@ -16,9 +16,7 @@ Bearbeiten Sie die `appsettings.json` Datei, um den zu öffnenden Ordner anzugeb
 
 ```json
 {
-  "FolderSettings": {
-    "FolderPath": "C:\\Users\\Public\\Documents"
-  }
+  "Ordner": "C:\\Users\\Public\\Documents"
 }
 ```
 
@@ -37,10 +35,6 @@ dotnet build OrdnerOeffner.csproj
 ```cmd
 dotnet run --project OrdnerOeffner.csproj
 ```
-
-Oder verwenden Sie die bereitgestellten Batch-Dateien:
-- `run.bat` - Führt die Anwendung mit dotnet aus
-- `run-silent.bat` - Führt die kompilierte ausführbare Datei im Hintergrund aus
 
 ### Eigenständige ausführbare Datei erstellen
 ```cmd

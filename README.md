@@ -1,18 +1,18 @@
-# Open Window Console Application
+# OrdnerOeffner (Folder Opener)
 
-A C# console application that runs silently in the background and opens a specified folder in Windows Explorer, bringing the window to the front and setting it to focus.
+Eine C# Konsolenanwendung, die im Hintergrund läuft und einen angegebenen Ordner im Windows Explorer öffnet, das Fenster in den Vordergrund bringt und fokussiert.
 
-## Features
+## Funktionen
 
-- Opens a folder in Windows Explorer
-- Brings the Explorer window to the front and gives it focus
-- Configurable folder path via `appsettings.json`
-- Runs silently without displaying a console window
-- Error handling for invalid paths
+- Öffnet einen Ordner im Windows Explorer
+- Bringt das Explorer-Fenster in den Vordergrund und fokussiert es
+- Konfigurierbarer Ordnerpfad über `appsettings.json`
+- Läuft im Hintergrund ohne Anzeige eines Konsolenfensters
+- Fehlerbehandlung für ungültige Pfade mit deutschen Meldungen
 
-## Configuration
+## Konfiguration
 
-Edit the `appsettings.json` file to specify the folder you want to open:
+Bearbeiten Sie die `appsettings.json` Datei, um den zu öffnenden Ordner anzugeben:
 
 ```json
 {
@@ -22,54 +22,55 @@ Edit the `appsettings.json` file to specify the folder you want to open:
 }
 ```
 
-## Building and Running
+## Erstellen und Ausführen
 
-### Prerequisites
-- .NET 8.0 SDK or later
-- Windows operating system
+### Voraussetzungen
+- .NET 8.0 SDK oder neuer
+- Windows-Betriebssystem
 
-### Build the application
+### Anwendung erstellen
 ```cmd
-dotnet build
+dotnet build OrdnerOeffner.csproj
 ```
 
-### Run the application
+### Anwendung ausführen
 ```cmd
-dotnet run --project OpenWindow.csproj
+dotnet run --project OrdnerOeffner.csproj
 ```
 
-Or use the provided batch files:
-- `run.bat` - Runs the application with dotnet
-- `run-silent.bat` - Runs the compiled executable silently in the background
+Oder verwenden Sie die bereitgestellten Batch-Dateien:
+- `run.bat` - Führt die Anwendung mit dotnet aus
+- `run-silent.bat` - Führt die kompilierte ausführbare Datei im Hintergrund aus
 
-### Create a self-contained executable
+### Eigenständige ausführbare Datei erstellen
 ```cmd
-dotnet publish OpenWindow.csproj -c Release -o publish
+dotnet publish OrdnerOeffner.csproj -c Release -o publish
 ```
 
-This will create a self-contained single executable in the `publish\` directory:
-- `OpenWindow.exe` - The main executable (doesn't require .NET to be installed)
-- `appsettings.json` - The configuration file
-- `OpenWindow.pdb` - Debug symbols (can be deleted for distribution)
+Dies erstellt eine eigenständige ausführbare Datei im `publish\` Verzeichnis:
+- `OrdnerOeffner.exe` - Die Hauptanwendung (benötigt keine .NET-Installation)
+- `appsettings.json` - Die Konfigurationsdatei
 
-## Usage
+## Verwendung
 
-1. Configure the folder path in `appsettings.json`
-2. Run the executable
-3. The specified folder will open in Windows Explorer and be brought to the front
+1. Konfigurieren Sie den Ordnerpfad in `appsettings.json`
+2. Führen Sie die ausführbare Datei aus
+3. Der angegebene Ordner wird im Windows Explorer geöffnet und in den Vordergrund gebracht
 
-## Technical Details
+## Technische Details
 
-The application uses:
-- Windows API calls (`user32.dll`) to manipulate window focus and visibility
-- Microsoft.Extensions.Configuration for reading settings
-- Process.Start to launch Windows Explorer
-- Window enumeration to find and focus the correct Explorer window
+Die Anwendung verwendet:
+- Windows-API-Aufrufe (`user32.dll`) zur Fenstermanipulation
+- Microsoft.Extensions.Configuration zum Lesen der Einstellungen
+- Process.Start zum Starten des Windows Explorers
+- Fenstererkennung um das korrekte Explorer-Fenster zu fokussieren
 
-## Error Handling
+## Fehlerbehandlung
 
-The application handles the following error scenarios:
-- Missing or invalid `appsettings.json` file
-- Invalid folder path in configuration
-- Folder doesn't exist
-- General exceptions during execution
+Die Anwendung behandelt die folgenden Fehlerszenarios:
+- Fehlende oder ungültige `appsettings.json` Datei
+- Ungültiger Ordnerpfad in der Konfiguration
+- Ordner existiert nicht
+- Allgemeine Ausnahmen während der Ausführung
+
+Alle Fehlermeldungen werden als Windows-Dialogfenster angezeigt.

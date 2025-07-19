@@ -26,9 +26,6 @@ public class Program
     private static extern int GetClassName(IntPtr hWnd, StringBuilder text, int count);
 
     [DllImport("user32.dll")]
-    private static extern uint GetWindowThreadProcessId(IntPtr hWnd, out uint processId);
-
-    [DllImport("user32.dll")]
     private static extern int MessageBox(IntPtr hWnd, string text, string caption, uint type);
 
     private delegate bool EnumWindowsProc(IntPtr hWnd, IntPtr lParam);
